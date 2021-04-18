@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Programs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Genre</th>
+      <th>Seasons</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @programs.each do |program| %>
+      <tr>
+        <td><%= program.name %></td>
+        <td><%= program.description %></td>
+        <td><%= program.genre.name unless program.genre.nil? %></td>
+        
+        <td>
+          <%# metodo para mostrar la cantidad de temporadas, pero me sale el error undefined method `seasons' for #<Program:0x000000000a0d8b30>, el cual no pude solucionarlo, este problema tambien me perjudico para hacer otros puntos similares%>
+          <%# if program.seasons.count == 0 %>
+            <%#= program.seasons.count %>
+          <%# else %>
+            <%#= link_to program.seasons.count, seasons_path(:program_id => program.id) %>
+          <%# end %> 
+        </td>
+        
+        <td> 
+          <%#= link_to program.season.count, seasons_path(:program_id => program.id)%>
+        </td>
+
+        <td><%= link_to 'Show', program %></td>
+        <td><%= link_to 'Edit', edit_program_path(program) %></td>
+        <td><%= link_to 'Destroy', program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Program', new_program_path %>

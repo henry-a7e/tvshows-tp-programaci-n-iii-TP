@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  begin_at: 2021-04-18 01:29:21
+  program: one
+
+two:
+  number: 1
+  begin_at: 2021-04-18 01:29:21
+  program: two

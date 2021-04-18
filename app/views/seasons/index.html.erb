@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Seasons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Begin at</th>
+      <th>
+        <%= link_to "Programs", seasons_path(:sort => true, :by => "id", :order => (params[:order] == "asc" ? "desc": "asc"))%>
+      </th>
+      <th>Minutos totales</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seasons.each do |season| %>
+      <tr>
+        <td><%= season.number %></td>
+        <td><%= season.begin_at %></td>
+        <td><%= season.program.name unless season.program.nil? %></td>
+
+        <td> </td>
+        <td> 
+          <%#----codigo par mostrar episodios, pero me sale error de "metodo episodes no definido"%>
+          <%# if season.episodes.count == 0 %>
+            <%#= season.episodes.count %>
+          <%# else %> 
+            <%#= link_to season.episodes.count, episodes_path(:season_id => season.id) %> 
+          <%#end%>
+        </td>
+
+        <td>
+          
+        </td>
+
+        <td><%= link_to 'Show', season %></td>
+        <td><%= link_to 'Edit', edit_season_path(season) %></td>
+        <td><%= link_to 'Destroy', season, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Season', new_season_path %>

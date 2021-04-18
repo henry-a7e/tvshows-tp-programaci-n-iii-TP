@@ -17,13 +17,12 @@
       <tr>
         <td><%= genre.name %></td>
 
-        <td>
-          <%#= if genre.programs.count == 0 %>
-            <%#= genre.programs.count %>
-          <%#= else %>
-            <%#= link_to genre.programs.count, programs_path(:genre_id => genre.id) %>
-          <%# end %>
+        
+        <td> 
+          <%= link_to genre.program.count, programs_path(:genre_id => genre.id)%>
         </td>
+         
+        
 
         <td><%= link_to 'Show', genre %></td>
         <td><%= link_to 'Edit', edit_genre_path(genre) %></td>
